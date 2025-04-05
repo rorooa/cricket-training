@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Shot Predictor</title>
+</head>
+<body>
+<h1>Cricket Shot Rating Predictor</h1>
+
+<form method="POST">
+    Height (cm): <input type="text" name="height" required><br>
+    Weight (kg): <input type="text" name="weight" required><br>
+    Age (years): <input type="text" name="age" required><br>
+    <input type="submit" value="Predict">
+</form>
+
+{% if results %}
+<h2>Results:</h2>
+{% if results.error %}
+<p>Error: {{ results.error }}</p>
+{% else %}
+<ul>
+{% for shot_name in results.keys() %}
+<li>{{ shot_name }}: {{ results[shot_name] }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endif %}
+</body>
+</html>

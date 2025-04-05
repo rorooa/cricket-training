@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Shot Recommendations</title>
+</head>
+<body>
+    <h1>Top 5 Recommended Cricket Shots</h1>
+    <ul>
+        {% for recommendation in recommendations %}
+        <li>
+            <strong>{{ recommendation.rank }}. {{ recommendation.shot_name }}:</strong>
+            <p>Rating: {{ recommendation.rating }}</p>
+            <p><a href="{{ recommendation.link }}" target="_blank">Learn more</a></p>
+            <p>Guidance: {{ recommendation.guidance }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <br><br>
+    <a href="/">Go Back</a>
+</body>
+</html>
